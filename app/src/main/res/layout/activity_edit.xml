@@ -9,19 +9,25 @@
 
     <EditText
         android:id="@+id/nameE"
+        android:hint="enter name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
         android:id="@+id/ageE"
+        android:hint="enter age"
         android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
         android:id="@+id/dateE"
+        android:hint="enter date"
+        android:focusable="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
         android:id="@+id/timeE"
+        android:hint="enter time"
+        android:focusable="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

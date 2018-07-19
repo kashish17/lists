@@ -155,6 +155,7 @@ ArrayList<Expense> expenses=new ArrayList<>();
              intent.putExtra(Contract.todo.AGE,bundle.getInt(Contract.todo.AGE));
              intent.putExtra(Contract.todo.DATE,bundle.getString(Contract.todo.DATE));
              intent.putExtra(Contract.todo.TIME,bundle.getString(Contract.todo.TIME));
+             intent.putExtra("id",id);
 
              PendingIntent pendingIntent=PendingIntent.getBroadcast(this,(int)id,intent,PendingIntent.FLAG_UPDATE_CURRENT);
 

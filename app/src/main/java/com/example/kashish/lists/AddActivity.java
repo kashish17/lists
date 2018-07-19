@@ -95,22 +95,54 @@ public class AddActivity extends AppCompatActivity {
     }
 
 
+    private boolean validateFields() {
 
-    public  void  submitA (View view){
-        Bundle bundle=new Bundle();
-        bundle.putString(Contract.todo.NAME,en.getText().toString());
-        bundle.putInt(Contract.todo.AGE,Integer.parseInt(ea.getText().toString()));
-        bundle.putString(Contract.todo.DATE ,date.getText().toString());
-        bundle.putString(Contract.todo.TIME ,time.getText().toString());
-        bundle.putInt("yy",year);
-        bundle.putInt("mm",month);
-        bundle.putInt("dd",day);
-        bundle.putInt("hh",hour);
-        bundle.putInt("mn",min);
+        String name = en.getText().toString().trim();
+        String age = ea.getText().toString().trim();
+        String dateS = date.getText().toString();
+        String timeS = time.getText().toString();
 
-            Intent intent= new Intent();
-            intent.putExtras(bundle);
-            setResult(SUBMIT,intent);
+        if (name.isEmpty()) {
+
+            en.setError("Enter title");
+            return false;
+        }
+
+        if (age.isEmpty()) {
+
+            ea.setError("Enter age");
+            return false;
+        }
+
+        if (dateS.isEmpty()) {
+
+            date.setError("Select date");
+            return false;
+        }
+        return  true;
+    }
+    public  void  submitA (View view) {
+        Bundle bundle = new Bundle();
+        if(validateFields()) {
+            Intent intent;
+
+            bundle.putString(Contract.todo.NAME, en.getText().toString());
+            bundle.putInt(Contract.todo.AGE, Integer.parseInt(ea.getText().toString()));
+            bundle.putString(Contract.todo.DATE, date.getText().toString());
+            bundle.putString(Contract.todo.TIME, time.getText().toString());
+            bundle.putInt("yy", year);
+            bundle.putInt("mm", month);
+            bundle.putInt("dd", day);
+            bundle.putInt("hh", hour);
+            bundle.putInt("mn", min);
+
+            intent = new Intent();
+            if (bundle != null) {
+                intent.putExtras(bundle);
+            }
+            setResult(SUBMIT, intent);
             finish();
         }
+
+    }
 }

@@ -30,7 +30,7 @@ public class AlarmReciever extends BroadcastReceiver {
         builder.setContentText("ALARM");
 
         Intent intent1=new Intent(context,ListActivity.class);
-        intent.setAction("Alarm");
+        intent1.setAction("Alarm");
 
         Bundle data =new Bundle();
         data.putString(Contract.todo.NAME,intent.getStringExtra(Contract.todo.NAME));
@@ -38,7 +38,7 @@ public class AlarmReciever extends BroadcastReceiver {
         data.putString(Contract.todo.DATE ,intent.getStringExtra(Contract.todo.DATE));
         data.putString(Contract.todo.TIME ,intent.getStringExtra(Contract.todo.TIME));
         intent1.putExtras(data);
-        PendingIntent pendingIntent=PendingIntent.getActivity(context,0,intent1,0);
+        PendingIntent pendingIntent=PendingIntent.getActivity(context,(int)intent.getLongExtra("id",0),intent1,0);
 
         builder.setContentIntent(pendingIntent);
 
